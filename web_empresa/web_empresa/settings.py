@@ -38,8 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'services.apps.ServicesConfig',
     'blog',
+    'ckeditor',
+    'contact',
+    'services.apps.ServicesConfig',
+    'social.apps.SocialConfig',
+    'pages.apps.PagesConfig'
     
 ]
 
@@ -66,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.processors.contexto_dict',
             ],
         },
     },
@@ -130,3 +135,21 @@ STATIC_URL = '/static/'
 # Media File
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+#Ckeditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+        ]
+    }
+}
+
+# EMAIL CONFIG
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '0820fe51ba0714'
+EMAIL_HOST_PASSWORD = '10d87a74e46296'
+EMAIL_PORT = '2525'
